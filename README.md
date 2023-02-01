@@ -6,4 +6,5 @@
 
 ## Resources/Documentation
 
+* [Android Studio documentation](https://developer.android.com/docs)
 * [Spoonacular food image recognition API](https://spoonacular.com/food-api/docs)

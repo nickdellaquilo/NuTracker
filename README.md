@@ -11,3 +11,4 @@
 * [Nutritional database API](https://fdc.nal.usda.gov/api-guide.html)
 * [Spoonacular food image recognition API](https://spoonacular.com/food-api/docs)
 * [Chaquopy, Python SDK for Android apps](https://chaquo.com/chaquopy/)
+  * [Example code](https://github.com/chaquo/chaquopy-matplotlib/blob/master/app/src/main/java/com/chaquo/myapplication/MainActivity.kt)

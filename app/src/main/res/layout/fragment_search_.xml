@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/peach"
+    tools:context=".search_Fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_gravity="center"
+            android:layout_width="360dp"
+            android:layout_height="55dp"
+            android:hint="Search"
+            android:imeOptions="actionSearch"
+            android:inputType="text" />
+
+        <ImageButton
+            android:id="@+id/btn_camera"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="390dp"
+            android:background="@drawable/brown_circle_btn"
+            android:contentDescription="camera"
+            android:src="@drawable/camera" />
+
+        <ImageButton
+            android:id="@+id/btn_menu"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="-75dp"
+            android:background="@drawable/brown_circle_btn"
+            android:contentDescription="menu"
+            android:src="@drawable/menu" />
+    </LinearLayout>
+
+</FrameLayout>

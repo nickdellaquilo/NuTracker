@@ -1,12 +1,30 @@
-<resources>
-    <string name="app_name">NuTracker Alpha</string>
-    <string name="action_settings">Settings</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name"><font color="#f99f42">NuT</font><font color="#d57e3a">racker!</font></string>
+    <string name="welcome">Welcome to</string>
+    <string name="Google">Sign in with Google</string>
+    <string name="Meta">Sign in with Meta</string>
+    <string name="Apple">Sign in with Apple</string>
+    <string name="Twitter">Sign in with Twitter</string>
+    <string name="create_acc">Create An Account</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register_acc"><font color="#f99f42">No Account?</font><font color="#ffb814"> Register</font></string>
+    <string name="sign_in"><font color="#f99f42">Already a Member? </font><font color="#ffb814">Sign In</font></string>
+    <!-- Strings related to login -->
+    <string name="title_activity_create_profile">CreateProfileActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

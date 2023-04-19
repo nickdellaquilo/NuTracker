@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/health_fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/peach"
+    android:padding="8dp"
+    tools:context="health_Fragment">
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"></com.github.mikephil.charting.charts.LineChart>
+
+
+    <Button
+        android:id="@+id/sampleButton"
+        style="@style/buttonBrown"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="-130dp"
+        android:text="test1" />
+
+
+    <Button
+        android:id="@+id/sampleButton2"
+        style="@style/toggleButton"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="190dp"
+        android:text="test2" />
+
+    <Button
+        android:id="@+id/sampleButton3"
+        style="@style/toggleButton"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="130dp"
+        android:text="test3" />
+
+
+</FrameLayout>

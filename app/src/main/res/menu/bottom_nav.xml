@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Health"
+        android:id = "@+id/Health"
+        android:icon="@drawable/health"/>
+    <item android:title="Search"
+        android:id = "@+id/Search"
+        android:icon="@drawable/search"/>
+    <item android:title="Profile"
+        android:id = "@+id/Profile"
+        android:icon="@drawable/baseline_home_24"/>
+</menu>

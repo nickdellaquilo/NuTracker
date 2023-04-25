@@ -14,7 +14,6 @@
         <activity
             android:name=".FirstTimeUser"
             android:exported="false"
-            android:label="@string/title_activity_first_time_user"
             android:theme="@style/Theme.NuTracker.NoActionBar" />
         <activity
             android:name=".HistoryActivity"

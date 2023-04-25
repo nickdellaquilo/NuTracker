@@ -12,9 +12,19 @@
         android:theme="@style/Theme.NuTracker"
         tools:targetApi="31">
         <activity
+            android:name=".FirstTimeUser"
+            android:exported="false"
+            android:label="@string/title_activity_first_time_user"
+            android:theme="@style/Theme.NuTracker.NoActionBar" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="true"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/Theme.Activities" />
+        <activity
             android:name=".HomeActivity"
-            android:theme = "@style/Theme.Activities"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Activities" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />

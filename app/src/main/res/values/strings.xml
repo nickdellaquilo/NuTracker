@@ -1,11 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name"><font color="#f99f42">NuT</font><font color="#d57e3a">racker!</font></string>
     <string name="welcome">Welcome to</string>
-    <string name="Google">Sign in with Google</string>
-    <string name="Meta">Sign in with Meta</string>
-    <string name="Apple">Sign in with Apple</string>
-    <string name="Twitter">Sign in with Twitter</string>
     <string name="create_acc">Create An Account</string>
+    <string name="create_profile">Create Profile</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="register_acc"><font color="#f99f42">No Account?</font><font color="#ffb814"> Register</font></string>
     <string name="sign_in"><font color="#f99f42">Already a Member? </font><font color="#ffb814">Sign In</font></string>
@@ -24,7 +21,15 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="food"></string>
+    <string name="title_activity_history">HistoryActivity</string>
+
+    <!-- Strings used for User Information -->
+    <string name="username"></string>
+    <string name="userGender"></string>
+    <string name="userHeight"></string>
+    <string name="userAge"></string>
+    <string name="userWeight"></string>
+    <string name="userActivityLVL"></string>
 
 </resources>

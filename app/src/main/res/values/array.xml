@@ -7,4 +7,45 @@
         <item>Very</item>
         <item>Athlete</item>
     </string-array>
+
+    <string-array name="Macronutrients">
+        <item>Carbohydrate</item>
+        <item>Protein</item>
+        <item>Fat</item>
+    </string-array>
+
+    <string-array name="Vitamins">
+        <item>Vitamin A</item>
+        <item>Vitamin B</item>
+        <item>Vitamin C</item>
+        <item>Vitamin D</item>
+        <item>Vitamin E</item>
+        <item>Vitamin K</item>
+        <item>Riboflavin</item>
+        <item>Folate</item>
+        <item>Niacin</item>
+        <item>Choline</item>
+        <item>Pantothenic Acid</item>
+        <item>Biotin</item>
+        <item>Carotenoids</item>
+    </string-array>
+
+    <string-array name="Minerals">
+        <item>Calcium</item>
+        <item>Chloride</item>
+        <item>Chromium</item>
+        <item>Copper</item>
+        <item>Fluoride</item>
+        <item>Iodine</item>
+        <item>Iron</item>
+        <item>Magnesium</item>
+        <item>Manganese</item>
+        <item>Molybdenum</item>
+        <item>Phosphorus</item>
+        <item>Potassium</item>
+        <item>Selenium</item>
+        <item>Sodium</item>
+        <item>Zinc</item>
+    </string-array>
+
 </resources>

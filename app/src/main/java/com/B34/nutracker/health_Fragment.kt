@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.LineData
@@ -12,20 +16,12 @@ import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.data.Entry
 
 class health_Fragment : Fragment() {
-    // on below line we are creating
-    // variables for our line chart
-    lateinit var lineChart: LineChart
+    lateinit var lineChart: LineChart // variables for our line chart
+    lateinit var lineData: LineData // a variable for line data
+    lateinit var lineDataSet: LineDataSet // variable for line data set
+    lateinit var lineEntriesList: ArrayList<Entry> // array list for line data
+    lateinit var data : String
 
-    // on below line we are creating
-    // a variable for line data
-    lateinit var lineData: LineData
-
-    // on below line we are creating a
-    // variable for line data set
-    lateinit var lineDataSet: LineDataSet
-
-    // on below line we are creating array list for line data
-    lateinit var lineEntriesList: ArrayList<Entry>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,31 +36,33 @@ class health_Fragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_health_, container, false)
         val lineChart : LineChart = view.findViewById(R.id.line)
 
-        // on below line we are calling get line
-        // chart data to add data to our array list
-        getLineChartData()
+        val spin : Spinner = view.findViewById(R.id.MacroNutrientSpinner)
+        if (spin != null) {
+            val adapter = ArrayAdapter(requireContext(),
+                android.R.layout.simple_spinner_item,
+                resources.getStringArray(R.array.Macronutrients))
+            spin.adapter = adapter
+        }
 
-        // on below line we are initializing our line data set
-        lineDataSet = LineDataSet(lineEntriesList, "Line Chart Data")
+        data = resources.getStringArray(R.array.Macronutrients)[0]
+        spin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                data = resources.getStringArray(R.array.Macronutrients)[p2]
+            }
 
-        // on below line we are initializing our line data
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                data = resources.getStringArray(R.array.Macronutrients)[0]
+            }
+        }
+
+        getLineChartData(data)
+        lineDataSet = LineDataSet(lineEntriesList, data)
         lineData = LineData(lineDataSet)
-
-        // on below line we are setting data to our line chart
         lineChart.data = lineData
-
-        // on below line we are setting colors for our line chart text
         lineDataSet.valueTextColor = R.color.black
-
-        // on below line we are setting color for our line data set
         lineDataSet.setColor(resources.getColor(R.color.brown_layout))
-
-        // on below line we are setting text size
         lineDataSet.valueTextSize = 0f
-
-        // on below line we are enabling description as false
         lineChart.description.isEnabled = false
-
 
         val btn2 : Button = view.findViewById(R.id.sampleButton2)
         btn2.setOnClickListener{
@@ -80,45 +78,55 @@ class health_Fragment : Fragment() {
             transaction?.replace(R.id.frame_layout, fragment)?.commit()
         }
 
+        val check : Button = view.findViewById(R.id.checkButton)
+        check.setOnClickListener {
+            lineEntriesList.clear()
+            getLineChartData(data)
+            lineDataSet = LineDataSet(lineEntriesList, data)
+            lineData = LineData(lineDataSet)
+            lineChart.data = lineData
+            lineDataSet.valueTextColor = R.color.black
+            lineDataSet.setColor(resources.getColor(R.color.brown_layout))
+            lineDataSet.valueTextSize = 0f
+            lineChart.description.isEnabled = false
+
+            lineChart.notifyDataSetChanged()
+            lineChart.invalidate()
+        }
+
         return view
     }
 
-    private fun getLineChartData() {
+    private fun getLineChartData(data : String) {
         lineEntriesList = ArrayList()
 
-        // on below line we are adding data
-        // to our line entries list
-        lineEntriesList.add(Entry(1f, 1f))
-        lineEntriesList.add(Entry(2f, 2f))
-        lineEntriesList.add(Entry(3f, 3f))
-        lineEntriesList.add(Entry(4f, 4f))
-        lineEntriesList.add(Entry(5f, 5f))
-        lineEntriesList.add(Entry(6f, 1f))
-        lineEntriesList.add(Entry(7f, 2f))
-        lineEntriesList.add(Entry(8f, 3f))
-        lineEntriesList.add(Entry(9f, 4f))
-        lineEntriesList.add(Entry(10f, 5f))
-        lineEntriesList.add(Entry(11f, 1f))
-        lineEntriesList.add(Entry(12f, 2f))
-        lineEntriesList.add(Entry(13f, 3f))
-        lineEntriesList.add(Entry(14f, 4f))
-        lineEntriesList.add(Entry(15f, 5f))
-        lineEntriesList.add(Entry(16f, 1f))
-        lineEntriesList.add(Entry(17f, 2f))
-        lineEntriesList.add(Entry(18f, 3f))
-        lineEntriesList.add(Entry(19f, 4f))
-        lineEntriesList.add(Entry(20f, 5f))
-        lineEntriesList.add(Entry(21f, 1f))
-        lineEntriesList.add(Entry(22f, 2f))
-        lineEntriesList.add(Entry(23f, 3f))
-        lineEntriesList.add(Entry(24f, 4f))
-        lineEntriesList.add(Entry(25f, 5f))
-        lineEntriesList.add(Entry(26f, 1f))
-        lineEntriesList.add(Entry(27f, 2f))
-        lineEntriesList.add(Entry(28f, 3f))
-        lineEntriesList.add(Entry(29f, 4f))
-        lineEntriesList.add(Entry(30f, 5f))
+        if (data == "Carbohydrate") {
+            lineEntriesList.add(Entry(1f, 1f))
+            lineEntriesList.add(Entry(2f, 2f))
+            lineEntriesList.add(Entry(3f, 3f))
+            lineEntriesList.add(Entry(4f, 4f))
+            lineEntriesList.add(Entry(5f, 5f))
+            lineEntriesList.add(Entry(6f, 1f))
+            lineEntriesList.add(Entry(7f, 2f))
+        }
 
-
+        else if (data == "Protein") {
+            lineEntriesList.add(Entry(1f, 10f))
+            lineEntriesList.add(Entry(2f, 12f))
+            lineEntriesList.add(Entry(3f, 13f))
+            lineEntriesList.add(Entry(4f, 14f))
+            lineEntriesList.add(Entry(5f, 20f))
+            lineEntriesList.add(Entry(6f, 17f))
+            lineEntriesList.add(Entry(7f, 12f))
+        }
+        else {
+            lineEntriesList.add(Entry(1f, 0f))
+            lineEntriesList.add(Entry(2f, 2f))
+            lineEntriesList.add(Entry(3f, 2f))
+            lineEntriesList.add(Entry(4f, 2f))
+            lineEntriesList.add(Entry(5f, 3f))
+            lineEntriesList.add(Entry(6f, 1f))
+            lineEntriesList.add(Entry(7f, 1f))
+        }
     }
 }

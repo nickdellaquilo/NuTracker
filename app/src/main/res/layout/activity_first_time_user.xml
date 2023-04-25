@@ -1,55 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme = "@style/Theme.NuTracker"
-    android:background="@color/peach"
-    tools:context=".edit_profile">
+    tools:context=".FirstTimeUser"
+    android:theme="@style/Theme.Activities"
+    android:background="@color/dark_brown">
 
     <ImageView
-        android:id="@+id/brown_bg"
+        android:id="@+id/img_logo"
+        android:layout_width="122dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="-48dp"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_started_sub_titled"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="-10dp"
-        android:src="@drawable/bg_brown" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="82dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/orange"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/leaf_right"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="-200dp"
-        android:src="@drawable/leaf_right" />
-
-    <ImageView
-        android:id="@+id/leaf_left"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="-70dp"
-        android:layout_marginTop="-200dp"
-        android:scaleX = "-1"
-        android:src="@drawable/leaf_right" />
-
-    <ImageButton
-        android:id="@+id/btn_profile_pic"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="-220dp"
-        android:background="@drawable/default_pic"
-        android:scaleType="fitCenter"/>
-
-    <ImageView
-        android:id="@+id/nut_badge"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_gravity = "center"
-        android:layout_marginTop="-120dp"
-        android:src="@drawable/nut_badge" />
+    <TextView
+        android:id="@+id/tv_create_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:text="@string/create_profile"
+        android:textAlignment="center"
+        android:textColor="@color/brown"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/username"
@@ -57,26 +50,45 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="200dp"
-        android:text="Name: John Doe"
+        android:text="Name: "
         android:textSize="22sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="95dp"
+        android:layout_marginTop="190dp"
+        android:inputType="number"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:textSize="1sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
     <TextView
         android:id="@+id/genderTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="250dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="Gender:" />
+        android:text="Gender:"
+        android:textColor="@color/white"/>
 
     <RadioGroup
         android:id="@+id/genderRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="100dp"
-        android:layout_marginTop="231dp"
+        android:layout_marginTop="251dp"
         android:orientation="horizontal">
 
         <RadioButton
@@ -85,7 +97,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Male"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:buttonTint= "@color/white"
+            android:textColor="@color/white"/>
 
         <RadioButton
             android:id="@+id/femaleRadioButton"
@@ -94,7 +108,9 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="15dp"
             android:text="Female"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:buttonTint= "@color/white"
+            android:textColor="@color/white" />
 
     </RadioGroup>
 
@@ -103,22 +119,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="300dp"
         android:text="Height (cm):"
         android:textSize="22sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginHorizontal="145dp"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="290dp"
         android:inputType="number"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/heightEditText"
-            android:layout_width="match_parent"
+            android:layout_width="75dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="number"
@@ -132,17 +149,18 @@
         android:id="@+id/ageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="350dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="Age: " />
+        android:text="Age: "
+        android:textColor="@color/white"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginHorizontal="68dp"
-        android:layout_marginTop="315dp"
+        android:layout_marginTop="345dp"
         android:textAlignment="center"
         android:textSize="15sp"
         android:inputType="number"
@@ -150,7 +168,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ageEditText"
-            android:layout_width="match_parent"
+            android:layout_width="75dp"
             android:layout_height="match_parent"
             android:inputType="number"
             android:background="@color/white"
@@ -163,18 +181,19 @@
         android:id="@+id/weightTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="410dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="Weight (kg):" />
+        android:text="Weight (kg):"
+        android:textColor="@color/white"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginHorizontal="145dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="400dp"
         android:textAlignment="center"
         android:textSize="10sp"
         android:inputType="number"
@@ -182,45 +201,54 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/weightEditText"
-            android:layout_width="match_parent"
+            android:layout_width="75dp"
             android:layout_height="match_parent"
             android:inputType="number"
             android:background="@color/white"
             android:layout_weight="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
-1
+    1
 
     <TextView
         android:id="@+id/activityLevelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="465dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-
+        android:textColor="@color/white"
         android:text="Activity Level: " />
 
     <Spinner
         android:id="@+id/activityLevelSpinner"
-        android:layout_width="wrap_content"
+        style="@style/buttonWhite"
+        android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_marginTop="420dp"
         android:layout_marginHorizontal="165dp"
-        android:textAlignment="center"
-        style = "@style/buttonWhite"
-        android:entries="@array/activity_levels" />
+        android:layout_marginTop="465dp"
+        android:entries="@array/activity_levels"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/saveButton"
-        style="@style/buttonBrown"
+        style="@style/buttonOrange2"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="190dp"
-        android:text="Save" />
+        android:layout_marginTop="430dp"
+        android:text="Save"
+        android:textColor="@color/white"/>
 
+    <Button
+        android:id="@+id/backButton"
+        style="@style/buttonOrange2"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="555dp"
+        android:text="Go Back"
+        android:textColor="@color/white"/>
 
-
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -20,12 +20,12 @@
 import chocopy
 
 @chocopy.export
-def calculate_dri(age, gender, weight, height):
+def calculate_dri(age, gender, weight, height, activity_level):
     # Calculate the basal metabolic rate (BMR) using the Mifflin-St Jeor equation
     if gender.lower() == 'male':
-        bmr = 10 * weight + 6.25 * height - 5 * age + 5
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5
     elif gender.lower() == 'female':
-        bmr = 10 * weight + 6.25 * height - 5 * age - 161
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161
     else:
         raise ValueError("Invalid gender")
 
@@ -37,6 +37,8 @@ def calculate_dri(age, gender, weight, height):
         'very active': 1.725,
         'extra active': 1.9
     }
+    if activity_level not in activity_levels:
+        raise ValueError("Invalid activity level")
     tdee = bmr * activity_level['sedentary']
 
     # Calculate the recommended intake of macronutrients based on TDEE

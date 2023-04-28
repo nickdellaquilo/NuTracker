@@ -48,4 +48,20 @@
         <item>Zinc</item>
     </string-array>
 
+    <string-array name="history">
+        <item>Apple</item>
+        <item>Banana</item>
+        <item>Peach</item>
+        <item>Orange</item>
+        <item>Strawberry</item>
+        <item>Watermelon</item>
+        <item>Kiwi</item>
+        <item>Pizza</item>
+        <item>Pasta</item>
+        <item>Burger</item>
+        <item>Sushi</item>
+        <item>Sprite</item>
+        <item>Pretzel</item>
+    </string-array>
+
 </resources>

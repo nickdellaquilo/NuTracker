@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop= "80dp"
         android:hint="@string/prompt_email"
-        style = "@style/textInputLayout"
+        style = "@style/textInputEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_started_sub_titled" >
 

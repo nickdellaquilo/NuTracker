@@ -9,12 +9,12 @@
     android:theme = "@style/Theme.NuTracker"
     tools:context=".search_Fragment">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.widget.SearchView
+        <SearchView
             android:id ="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,13 +24,21 @@
             android:background="@color/white"
             />
 
+        <ListView
+            android:id="@+id/searchList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search"
+            android:dividerHeight="2dp">
+        </ListView>
+
         <ImageButton
             android:id="@+id/btn_camera"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="390dp"
+            android:layout_marginStart="320dp"
+            android:layout_marginTop="465dp"
             android:background="@drawable/brown_circle_btn"
             android:contentDescription="camera"
             android:src="@drawable/camera" />
@@ -40,11 +48,11 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_marginStart="-150dp"
-            android:layout_marginTop="-75dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="465dp"
             android:background="@drawable/brown_circle_btn"
             android:contentDescription="menu"
             android:src="@drawable/menu" />
-    </LinearLayout>
+    </RelativeLayout>
 
 </FrameLayout>

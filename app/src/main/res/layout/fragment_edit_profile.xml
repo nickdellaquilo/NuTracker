@@ -34,7 +34,7 @@
         android:scaleX = "-1"
         android:src="@drawable/leaf_right" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/btn_profile_pic"
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -108,25 +108,18 @@
         android:textSize="22sp"
         android:textStyle="bold" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/heightEditText"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginHorizontal="145dp"
         android:layout_marginTop="270dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:textSize="15sp"
         android:inputType="number"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/heightEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:background="@color/white"
-            android:textSize="1sp"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
+        android:textAlignment="center"
+        android:hint="..."/>
 
     <TextView
         android:id="@+id/ageTextView"
@@ -138,25 +131,18 @@
         android:textStyle="bold"
         android:text="Age: " />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/ageEditText"
+        android:layout_width="65dp"
         android:layout_height="50dp"
         android:layout_marginHorizontal="68dp"
         android:layout_marginTop="315dp"
         android:textAlignment="center"
         android:textSize="15sp"
         android:inputType="number"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ageEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="number"
-            android:background="@color/white"
-            android:layout_weight="1" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:background="@color/white"
+        android:layout_weight="1"
+        android:hint="..."/>
 
 
     <TextView
@@ -170,26 +156,19 @@
         android:text="Weight (kg):" />
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="145dp"
-        android:layout_marginTop="360dp"
-        android:textAlignment="center"
-        android:textSize="10sp"
-        android:inputType="number"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/weightEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="145dp"
+            android:layout_marginTop="360dp"
+            android:textAlignment="center"
+            android:textSize="15sp"
             android:inputType="number"
             android:background="@color/white"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:hint="..."/>
 
-    </com.google.android.material.textfield.TextInputLayout>
-1
 
     <TextView
         android:id="@+id/activityLevelTextView"
@@ -199,13 +178,13 @@
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-
-        android:text="Activity Level: " />
+        android:text="Activity Level: "
+        android:contentDescription="Enter Activity Level"/>
 
     <Spinner
         android:id="@+id/activityLevelSpinner"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="35dp"
         android:layout_marginTop="420dp"
         android:layout_marginHorizontal="165dp"
         android:textAlignment="center"

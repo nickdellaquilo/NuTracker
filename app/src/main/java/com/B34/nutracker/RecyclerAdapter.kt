@@ -8,17 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-
-    private val titles = arrayOf("Chapter One",
-        "Chapter Two", "Chapter Three", "Chapter Four",
-        "Chapter Five", "Chapter Six", "Chapter Seven",
-        "Chapter Eight")
+class RecyclerAdapter(val titles : MutableList<String>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        var itemFood: TextView
-
+        var itemFood : TextView
         init {
             itemFood = itemView.findViewById(R.id.idTVFoodName)
         }

@@ -12,9 +12,20 @@
         android:theme="@style/Theme.NuTracker"
         tools:targetApi="31">
         <activity
+            android:name=".CameraActivity"
+            android:exported="false"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/Theme.NuTracker.NoActionBar" />
+        <activity
+            android:name=".FoodInfo"
+            android:exported="true"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/Theme.Activities" />
+        <activity
             android:name=".FirstTimeUser"
             android:exported="false"
-            android:theme="@style/Theme.NuTracker.NoActionBar" />
+            android:parentActivityName=".RegisterActivity"
+            android:theme="@style/Theme.Activities" />
         <activity
             android:name=".HistoryActivity"
             android:exported="true"

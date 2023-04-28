@@ -54,64 +54,118 @@
         android:src="@drawable/nut_badge" />
 
     <TextView
-        android:id="@+id/username"
-        android:layout_width="match_parent"
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="200dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="Name: John Doe" />
+        android:text="Name: " />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginHorizontal="85dp"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/genderTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="240dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="Gender: Male" />
+        android:text="Gender: " />
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:layout_marginHorizontal="100dp"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/heightTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="280dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="Height: 175 cm" />
+        android:text="Height: " />
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginHorizontal="90dp"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/ageTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="320dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="Age: 25 years" />
+        android:text="Age: " />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:layout_marginHorizontal="65dp"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/weightTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="370dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="Weight: 70.0 kg" />
+        android:text="Weight: " />
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_marginHorizontal="95dp"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/activityLevelTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="420dp"
         android:layout_marginHorizontal="15dp"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="Activity Level: Little" />
+        android:text="Activity Level: " />
+
+    <TextView
+        android:id="@+id/activityLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:layout_marginHorizontal="160dp"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/editButton"

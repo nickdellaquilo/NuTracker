@@ -2,24 +2,15 @@ package com.B34.nutracker
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
+import android.widget.*
+import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.activity_history.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [search_Fragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class search_Fragment : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -34,10 +25,45 @@ class search_Fragment : Fragment() {
         val historyBtn : ImageButton = view.findViewById(R.id.btn_history)
         historyBtn.setOnClickListener{
             val intent = Intent (getActivity(), HistoryActivity::class.java)
+            intent.putExtra("food","")
             getActivity()?.startActivity(intent)
         }
 
+        val cameraBtn : ImageButton = view.findViewById(R.id.btn_camera)
+        cameraBtn.setOnClickListener{
+            val intent = Intent (getActivity(), CameraActivity::class.java)
+            getActivity()?.startActivity(intent)
+        }
 
+        val search : SearchView = view.findViewById(R.id.search)
+        val listView : ListView = view.findViewById(R.id.searchList)
+        val searchAdapter : ArrayAdapter<String> = ArrayAdapter(requireContext(),
+            android.R.layout.simple_list_item_1,
+            resources.getStringArray(R.array.Vitamins))
+
+        listView.adapter = searchAdapter
+        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                if (resources.getStringArray(R.array.Vitamins).contains(p0)) {
+                    searchAdapter.filter.filter(p0)
+                }
+                return false
+            }
+            override fun onQueryTextChange(p0: String?): Boolean {
+                searchAdapter.filter.filter(p0)
+                return false
+            }
+        })
+
+        listView.setOnItemClickListener { parent, view, position, id->
+            val selected = parent.getItemAtPosition(position) as String
+            val extras = Bundle()
+            extras.putString("food", selected)
+
+            val intent = Intent (getActivity(), FoodInfo::class.java)
+            intent.putExtras(extras)
+            getActivity()?.startActivity(intent)
+        }
         return view
     }
 }

@@ -13,12 +13,19 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 
 class health_pt2 : Fragment() {
     lateinit var lineChart: LineChart // variables for our line chart
     lateinit var lineData: LineData // a variable for line data
+
     lateinit var lineDataSet: LineDataSet // variable for line data set
-    lateinit var lineEntriesList: ArrayList<Entry> // array list for line data
+    lateinit var recDataSet: LineDataSet // variable for rec line data set
+
+    lateinit var lineEntriesList: ArrayList<Entry> // array list for user nutrients
+    lateinit var recEntriesList: ArrayList<Entry> // array list for recommended compare
+    lateinit var dataSets : ArrayList<ILineDataSet> // array list for recommended compare
+
     lateinit var data : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +39,7 @@ class health_pt2 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_health_pt2, container, false)
-        val lineChart : LineChart = view.findViewById(R.id.line)
+        lineChart  = view.findViewById(R.id.line)
 
         val spin : Spinner = view.findViewById(R.id.VitaminSpinner)
         if (spin != null) {
@@ -55,11 +62,22 @@ class health_pt2 : Fragment() {
 
         getLineChartData(data)
         lineDataSet = LineDataSet(lineEntriesList, data)
-        lineData = LineData(lineDataSet)
+        recDataSet = LineDataSet(recEntriesList, "Recommended")
+
+        dataSets = ArrayList<ILineDataSet>()
+        dataSets.add(lineDataSet)
+        dataSets.add(recDataSet)
+
+        lineData = LineData(dataSets)
         lineChart.data = lineData
-        lineDataSet.valueTextColor = R.color.black
-        lineDataSet.setColor(resources.getColor(R.color.brown_layout))
+
+        lineDataSet.setColor(resources.getColor(R.color.dark_brown))
+        recDataSet.setColor(resources.getColor(R.color.brown_layout))
+        lineDataSet.lineWidth = 1.5f
+        recDataSet.lineWidth = 3f
+
         lineDataSet.valueTextSize = 0f
+        recDataSet.valueTextSize = 0f
         lineChart.description.isEnabled = false
 
         val btn1 : Button = view.findViewById(R.id.sampleButton)
@@ -78,14 +96,24 @@ class health_pt2 : Fragment() {
 
         val check : Button = view.findViewById(R.id.checkButton)
         check.setOnClickListener {
-            lineEntriesList.clear()
             getLineChartData(data)
             lineDataSet = LineDataSet(lineEntriesList, data)
-            lineData = LineData(lineDataSet)
+            recDataSet = LineDataSet(recEntriesList, "Recommended")
+
+            dataSets = ArrayList<ILineDataSet>()
+            dataSets.add(lineDataSet)
+            dataSets.add(recDataSet)
+
+            lineData = LineData(dataSets)
             lineChart.data = lineData
-            lineDataSet.valueTextColor = R.color.black
-            lineDataSet.setColor(resources.getColor(R.color.brown_layout))
+
+            lineDataSet.setColor(resources.getColor(R.color.dark_brown))
+            recDataSet.setColor(resources.getColor(R.color.brown_layout))
+            lineDataSet.lineWidth = 1.5f
+            recDataSet.lineWidth = 3f
+
             lineDataSet.valueTextSize = 0f
+            recDataSet.valueTextSize = 0f
             lineChart.description.isEnabled = false
 
             lineChart.notifyDataSetChanged()
@@ -97,8 +125,12 @@ class health_pt2 : Fragment() {
 
     private fun getLineChartData(data : String) {
         lineEntriesList = ArrayList()
+        recEntriesList = ArrayList()
 
         if (data == "Vitamin A") {
+//            for (x in 1..7) { // Grab last 7 days of nutrient info
+//                lineEntriesList.add(Entry(x.toFloat(), 1f))
+//            }
             lineEntriesList.add(Entry(1f, 1f))
             lineEntriesList.add(Entry(2f, 2f))
             lineEntriesList.add(Entry(3f, 3f))
@@ -106,6 +138,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 5f))
             lineEntriesList.add(Entry(6f, 1f))
             lineEntriesList.add(Entry(7f, 2f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 3f))
+            recEntriesList.add(Entry(7f, 3f))
         }
 
         else if (data == "Vitamin B") {
@@ -116,6 +152,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else if (data == "Vitamin C") {
@@ -126,6 +166,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else if (data == "Vitamin D") {
@@ -136,6 +180,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
         else if (data == "Vitamin E") {
             lineEntriesList.add(Entry(1f, 10f))
@@ -145,6 +193,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else if (data == "Vitamin K") {
@@ -155,6 +207,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else if (data == "Riboflavin") {
@@ -165,6 +221,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else if (data == "Folate") {
@@ -175,6 +235,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else if (data == "Niacin") {
@@ -185,6 +249,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else if (data == "Choline") {
@@ -195,6 +263,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else if (data == "Pantothenic Acid") {
@@ -205,6 +277,9 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else if (data == "Biotin") {
@@ -215,6 +290,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 20f))
             lineEntriesList.add(Entry(6f, 17f))
             lineEntriesList.add(Entry(7f, 12f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 13f))
+            recEntriesList.add(Entry(7f, 13f))
         }
 
         else {
@@ -225,6 +304,10 @@ class health_pt2 : Fragment() {
             lineEntriesList.add(Entry(5f, 3f))
             lineEntriesList.add(Entry(6f, 1f))
             lineEntriesList.add(Entry(7f, 1f))
+
+            // Recommended amount
+            recEntriesList.add(Entry(1f, 3f))
+            recEntriesList.add(Entry(7f, 3f))
         }
     }
 }

@@ -8,16 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_first_time_user.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [edit_profile.newInstance] factory method to
- * create an instance of this fragment.
- */
 class edit_profile : Fragment() {
     lateinit var userActivityLVL : String
 

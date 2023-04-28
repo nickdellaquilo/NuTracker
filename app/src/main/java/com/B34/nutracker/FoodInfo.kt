@@ -2,9 +2,7 @@ package com.B34.nutracker
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -31,11 +29,19 @@ class FoodInfo : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = "Information"
 
+        val editQuantity = findViewById<EditText>(R.id.Quantity)
         val addBtn : Button = findViewById(R.id.addButton)
         addBtn.setOnClickListener{
-            val intent = Intent(this, HistoryActivity::class.java)
-            intent.putExtra("add", FoodName.toString())
-            startActivity(intent)
+            val userQuantity= editQuantity.text.toString().toIntOrNull()
+            if (userQuantity != null) {
+                // ADD TO USER HISTORY
+                val intent = Intent(this, HistoryActivity::class.java)
+                intent.putExtra("add", FoodName.toString())
+                startActivity(intent)
+            }
+            else {
+                Toast.makeText(this, "Invalid Quantity!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
     private fun initData() {

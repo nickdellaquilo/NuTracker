@@ -51,7 +51,7 @@
         android:layout_height="45dp"
         android:layout_gravity="center"
         android:layout_marginTop="200dp"
-        android:layout_marginLeft="-75dp"
+        android:layout_marginLeft="-105dp"
         android:textAlignment="center"
         style = "@style/buttonWhite"
         android:entries="@array/Vitamins" />
@@ -63,7 +63,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="200dp"
-        android:layout_marginLeft="75dp"
+        android:layout_marginLeft="55dp"
         android:text="Check" />
+
+    <Button
+        android:id="@+id/adviceButton"
+        style="@style/infoBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="155dp"
+        android:text="A"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColorHint="@color/dark_brown"/>
 
 </FrameLayout>

@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_first_time_user.*
 
 class edit_profile : Fragment() {
     lateinit var userActivityLVL : String
+    lateinit var userName : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,7 @@ class edit_profile : Fragment() {
                 resources.getStringArray(R.array.activity_levels))
             spin.adapter = adapter
         }
-
+        initData()
         userActivityLVL = resources.getStringArray(R.array.activity_levels)[0]
         spin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
@@ -45,21 +46,32 @@ class edit_profile : Fragment() {
 
         val saveBtn : Button = view.findViewById(R.id.saveButton)
         saveBtn.setOnClickListener{
-            val userGender = genderRadioGroup.checkedRadioButtonId
+            val genderID = genderRadioGroup.checkedRadioButtonId
             val userAge = editAge.text.toString().toIntOrNull()
             val userWeight = editWeight.text.toString().toIntOrNull()
             val userHeight = editHeight.text.toString().toIntOrNull()
 
-            if ((userGender != -1) && (userHeight != null)
+            if ((genderID != -1) && (userHeight != null)
                 && (userAge != null) && (userWeight != null)) {
+
+                val userGender : RadioButton = view.findViewById(genderID)
+
                 if (userHeight > 250 || userAge > 120 || userWeight > 600) {
                     Toast.makeText(requireContext(), "One or More Invalid Inputs!", Toast.LENGTH_SHORT).show()
                 }
                 else {
                     // Update User Info in Database
+                    val bundle = Bundle()
+                    bundle.putString("name", userName)
+                    bundle.putString("gender", userGender.text.toString())
+                    bundle.putString("height", editHeight.text.toString() + " cm")
+                    bundle.putString("age", editAge.text.toString() + " years")
+                    bundle.putString("weight", editWeight.text.toString() + " kg")
+                    bundle.putString("lvl", userActivityLVL)
 
                     val fragment = profile_Fragment()
                     val transaction = fragmentManager?.beginTransaction()
+                    fragment.arguments = bundle
                     transaction?.replace(R.id.frame_layout, fragment)?.commit()
                 }
             }
@@ -68,5 +80,13 @@ class edit_profile : Fragment() {
             }
         }
         return view
+    }
+    private fun initData() {
+        getData()
+    }
+
+    private fun getData() {
+        var bundle = arguments
+        userName = bundle!!.getString("name").toString()
     }
 }

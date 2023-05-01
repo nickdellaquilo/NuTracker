@@ -77,6 +77,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="infoBtn">
+        <item name="android:background">@drawable/circlebutton</item>
+    </style>
+
     <style name="textInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:textColorHint">@color/dark_gray</item>
         <item name="android:textColor">@color/black</item>

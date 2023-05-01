@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_history.*
 
 class search_Fragment : Fragment() {
+    lateinit var food_database : Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,16 +36,17 @@ class search_Fragment : Fragment() {
             getActivity()?.startActivity(intent)
         }
 
+        food_database = resources.getStringArray(R.array.food_database).sortedArray()
         val search : SearchView = view.findViewById(R.id.search)
         val listView : ListView = view.findViewById(R.id.searchList)
         val searchAdapter : ArrayAdapter<String> = ArrayAdapter(requireContext(),
             android.R.layout.simple_list_item_1,
-            resources.getStringArray(R.array.Vitamins))
+            food_database)
 
         listView.adapter = searchAdapter
         search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
-                if (resources.getStringArray(R.array.Vitamins).contains(p0)) {
+                if (food_database.contains(p0)) {
                     searchAdapter.filter.filter(p0)
                 }
                 return false

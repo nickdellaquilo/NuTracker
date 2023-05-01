@@ -25,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
             val userPass = inputPass.text.toString()
             val userPassCheck = inputPassCheck.text.toString()
 
-            if (userPass == userPassCheck && userEmail.isNotEmpty()) {
+            if (userPass == userPassCheck && userEmail.isNotEmpty() && userPass.isNotEmpty()) {
                 val intent = Intent(this, FirstTimeUser::class.java)
                 intent.putExtra("email",userEmail)
                 startActivity(intent)

@@ -35,11 +35,11 @@ class CameraActivity : AppCompatActivity() {
         if (requestCode == cameraRequest) {
             val photo: Bitmap = data?.extras?.get("data") as Bitmap
             val photoURI: Uri = getImageURI(applicationContext, photo)
+
             // CALL THIS METHOD TO GET THE ACTUAL PATH FOR ML algorithm
             val photoFile: File = File(getRealPathFromURI(photoURI))
 
-
-            val selected = "Selected"
+            val selected = null
             val extras = Bundle()
             extras.putString("food", selected)
 

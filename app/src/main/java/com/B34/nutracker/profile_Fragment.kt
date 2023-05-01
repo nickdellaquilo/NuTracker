@@ -11,6 +11,12 @@ import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 
 class profile_Fragment : Fragment() {
+    lateinit var name : TextView
+    lateinit var gender : TextView
+    lateinit var height : TextView
+    lateinit var age : TextView
+    lateinit var weight : TextView
+    lateinit var level : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,29 +30,46 @@ class profile_Fragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_profile_, container, false)
         val editBtn : Button = view.findViewById(R.id.editButton)
 
-        val name = view.findViewById<TextView>(R.id.name)
-        val gender = view.findViewById<TextView>(R.id.gender)
-        val height = view.findViewById<TextView>(R.id.height)
-        val age = view.findViewById<TextView>(R.id.age)
-        val weight = view.findViewById<TextView>(R.id.weight)
-        val level = view.findViewById<TextView>(R.id.activityLevel)
+        name = view.findViewById<TextView>(R.id.name)
+        gender = view.findViewById<TextView>(R.id.gender)
+        height = view.findViewById<TextView>(R.id.height)
+        age = view.findViewById<TextView>(R.id.age)
+        weight = view.findViewById<TextView>(R.id.weight)
+        level = view.findViewById<TextView>(R.id.activityLevel)
 
-        // Get Info From Database
-
-        // test data
-        name.text = "John Doe"
-        gender.text = "Female"
-        height.text = "175 cm"
-        age.text = "25 years"
-        weight.text = "70 kg"
-        level.text = "High"
-
-
+        initData()
         editBtn.setOnClickListener{
+            val bundle = Bundle()
+            bundle.putString("name", name.text.toString())
+
             val fragment = edit_profile()
             val transaction = fragmentManager?.beginTransaction()
+            fragment.arguments = bundle
             transaction?.replace(R.id.frame_layout, fragment)?.commit()
         }
         return view
+    }
+    private fun initData() {
+        getData()
+    }
+
+    private fun getData() {
+        var bundle = arguments
+        if (bundle == null) {
+            name.text = "Thomas Kong"
+            gender.text = "Male"
+            height.text = "175 cm"
+            age.text = "21 years"
+            weight.text = "70 kg"
+            level.text = "Little"
+        }
+        else {
+            name.text = bundle!!.getString("name")
+            gender.text = bundle!!.getString("gender")
+            height.text = bundle!!.getString("height")
+            age.text = bundle!!.getString("age")
+            weight.text = bundle!!.getString("weight")
+            level.text = bundle!!.getString("lvl")
+        }
     }
 }

@@ -4,11 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.LineData
@@ -28,7 +24,8 @@ class health_Fragment : Fragment() {
     lateinit var dataSets : ArrayList<ILineDataSet> // array list for recommended compare
 
     lateinit var data : String
-
+    lateinit var rec : String
+    lateinit var advice : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +61,7 @@ class health_Fragment : Fragment() {
 
         getLineChartData(data)
         lineDataSet = LineDataSet(lineEntriesList, data)
-        recDataSet = LineDataSet(recEntriesList, "Recommended")
+        recDataSet = LineDataSet(recEntriesList, rec)
 
         dataSets = ArrayList<ILineDataSet>()
         dataSets.add(lineDataSet)
@@ -96,11 +93,17 @@ class health_Fragment : Fragment() {
             transaction?.replace(R.id.frame_layout, fragment)?.commit()
         }
 
+        val adviceBtn : Button = view.findViewById(R.id.adviceButton)
+            adviceBtn.setOnClickListener{
+                Toast.makeText(requireContext(), advice, Toast.LENGTH_SHORT).show()
+        }
+
+
         val check : Button = view.findViewById(R.id.checkButton)
         check.setOnClickListener {
             getLineChartData(data)
             lineDataSet = LineDataSet(lineEntriesList, data)
-            recDataSet = LineDataSet(recEntriesList, "Recommended")
+            recDataSet = LineDataSet(recEntriesList, rec)
 
             dataSets = ArrayList<ILineDataSet>()
             dataSets.add(lineDataSet)
@@ -128,46 +131,56 @@ class health_Fragment : Fragment() {
     private fun getLineChartData(data : String) {
         lineEntriesList = ArrayList()
         recEntriesList = ArrayList()
+        rec = "Recommend (g)"
 
         if (data == "Carbohydrate") {
-            lineEntriesList.add(Entry(1f, 1f))
-            lineEntriesList.add(Entry(2f, 2f))
-            lineEntriesList.add(Entry(3f, 3f))
-            lineEntriesList.add(Entry(4f, 4f))
-            lineEntriesList.add(Entry(5f, 5f))
-            lineEntriesList.add(Entry(6f, 1f))
-            lineEntriesList.add(Entry(7f, 2f))
+            lineEntriesList.add(Entry(1f, 310f))
+            lineEntriesList.add(Entry(2f, 300f))
+            lineEntriesList.add(Entry(3f, 330f))
+            lineEntriesList.add(Entry(4f, 300f))
+            lineEntriesList.add(Entry(5f, 355f))
+            lineEntriesList.add(Entry(6f, 312f))
+            lineEntriesList.add(Entry(7f, 300f))
 
             // Recommended amount
-            recEntriesList.add(Entry(1f, 3f))
-            recEntriesList.add(Entry(7f, 3f))
+            advice = "Good Source of Carbs: \n" +
+                    "Whole grains, Fruits, Vegetables"
+
+            recEntriesList.add(Entry(1f, 320f))
+            recEntriesList.add(Entry(7f, 320f))
         }
 
         else if (data == "Protein") {
-            lineEntriesList.add(Entry(1f, 10f))
-            lineEntriesList.add(Entry(2f, 12f))
-            lineEntriesList.add(Entry(3f, 13f))
-            lineEntriesList.add(Entry(4f, 14f))
-            lineEntriesList.add(Entry(5f, 20f))
-            lineEntriesList.add(Entry(6f, 17f))
-            lineEntriesList.add(Entry(7f, 12f))
+            lineEntriesList.add(Entry(1f, 60f))
+            lineEntriesList.add(Entry(2f, 72f))
+            lineEntriesList.add(Entry(3f, 43f))
+            lineEntriesList.add(Entry(4f, 40f))
+            lineEntriesList.add(Entry(5f, 70f))
+            lineEntriesList.add(Entry(6f, 57f))
+            lineEntriesList.add(Entry(7f, 52f))
 
             // Recommended amount
-            recEntriesList.add(Entry(1f, 3f))
-            recEntriesList.add(Entry(7f, 3f))
+            advice = "Good Source of Protein: \n" +
+                    "Lean meats, Eggs, Dairy products"
+
+            recEntriesList.add(Entry(1f, 50f))
+            recEntriesList.add(Entry(7f, 50f))
         }
         else {
-            lineEntriesList.add(Entry(1f, 0f))
-            lineEntriesList.add(Entry(2f, 2f))
-            lineEntriesList.add(Entry(3f, 2f))
-            lineEntriesList.add(Entry(4f, 2f))
-            lineEntriesList.add(Entry(5f, 3f))
-            lineEntriesList.add(Entry(6f, 1f))
-            lineEntriesList.add(Entry(7f, 1f))
+            lineEntriesList.add(Entry(1f, 70f))
+            lineEntriesList.add(Entry(2f, 82f))
+            lineEntriesList.add(Entry(3f, 73f))
+            lineEntriesList.add(Entry(4f, 69f))
+            lineEntriesList.add(Entry(5f, 63f))
+            lineEntriesList.add(Entry(6f, 56f))
+            lineEntriesList.add(Entry(7f, 52f))
 
             // Recommended amount
-            recEntriesList.add(Entry(1f, 3f))
-            recEntriesList.add(Entry(7f, 3f))
+            advice = "Good Source of Fat: \n" +
+                    "Nuts/seeds, Avocado, Fatty fish"
+
+            recEntriesList.add(Entry(1f, 70f))
+            recEntriesList.add(Entry(7f, 70f))
         }
     }
 }

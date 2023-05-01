@@ -56,8 +56,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="200dp"
-        android:text="Name: John Doe"
+        android:layout_marginTop="205dp"
+        android:text="Name: Thomas Kong"
         android:textSize="22sp"
         android:textStyle="bold" />
 

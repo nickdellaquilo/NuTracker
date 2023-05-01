@@ -27,7 +27,6 @@
         <item>Choline</item>
         <item>Pantothenic Acid</item>
         <item>Biotin</item>
-        <item>Carotenoids</item>
     </string-array>
 
     <string-array name="Minerals">
@@ -64,4 +63,94 @@
         <item>Pretzel</item>
     </string-array>
 
+    <string-array name="food_database">
+        <item>Apple</item>
+        <item>Avocado</item>
+        <item>Banana</item>
+        <item>Blueberries</item>
+        <item>Broccoli</item>
+        <item>Brussels Sprouts</item>
+        <item>Burger</item>
+        <item>Cabbage</item>
+        <item>Carrot</item>
+        <item>Cauliflower</item>
+        <item>Celery</item>
+        <item>Cherry</item>
+        <item>Chicken</item>
+        <item>Coconut</item>
+        <item>Coffee</item>
+        <item>Corn</item>
+        <item>Cucumber</item>
+        <item>Eggplant</item>
+        <item>Eggs</item>
+        <item>Fish</item>
+        <item>Grapes</item>
+        <item>Green Beans</item>
+        <item>Green Onion</item>
+        <item>Green Peppers</item>
+        <item>Honeydew Melon</item>
+        <item>Iceberg Lettuce</item>
+        <item>Kale</item>
+        <item>Kiwi</item>
+        <item>Lemon</item>
+        <item>Lime</item>
+        <item>Mango</item>
+        <item>Mushrooms</item>
+        <item>Olive Oil</item>
+        <item>Onion</item>
+        <item>Orange</item>
+        <item>Papaya</item>
+        <item>Pasta</item>
+        <item>Peach</item>
+        <item>Peas</item>
+        <item>Pineapple</item>
+        <item>Pizza</item>
+        <item>Potato</item>
+        <item>Pretzel</item>
+        <item>Quinoa</item>
+        <item>Radish</item>
+        <item>Raspberry</item>
+        <item>Red Cabbage</item>
+        <item>Red Onion</item>
+        <item>Red Peppers</item>
+        <item>Rice</item>
+        <item>Salmon</item>
+        <item>Spinach</item>
+        <item>Squash</item>
+        <item>Sushi</item>
+        <item>Sprite</item>
+        <item>Strawberry</item>
+        <item>Sweet Potato</item>
+        <item>Tangerine</item>
+        <item>Tomato</item>
+        <item>Tuna</item>
+        <item>Turkey</item>
+        <item>Watermelon</item>
+        <item>White Mushrooms</item>
+        <item>Yellow Peppers</item>
+        <item>Zucchini</item>
+        <item>Almonds</item>
+        <item>Bacon</item>
+        <item>Basil</item>
+        <item>Beef</item>
+        <item>Bell Peppers</item>
+        <item>Bread</item>
+        <item>Butter</item>
+        <item>Cake</item>
+        <item>Cantaloupe</item>
+        <item>Cheese</item>
+        <item>Cherries</item>
+        <item>Chocolate</item>
+        <item>Cinnamon</item>
+        <item>Clams</item>
+        <item>Coconut Milk</item>
+        <item>Cottage Cheese</item>
+        <item>Cream Cheese</item>
+        <item>Cumin</item>
+        <item>Curry Powder</item>
+        <item>Dates</item>
+        <item>Dill</item>
+        <item>Eggplant Parmesan</item>
+        <item>Flour</item>
+    </string-array>
 </resources>

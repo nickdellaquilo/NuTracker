@@ -50,20 +50,28 @@ class FirstTimeUser : AppCompatActivity() {
         val save = findViewById<TextView>(R.id.saveButton)
         save.setOnClickListener {
             val userName = editName.text.toString()
-            val userGender = genderRadioGroup.checkedRadioButtonId
+            val genderID = genderRadioGroup.checkedRadioButtonId
             val userAge = editAge.text.toString().toIntOrNull()
             val userWeight = editWeight.text.toString().toIntOrNull()
             val userHeight = editHeight.text.toString().toIntOrNull()
 
-            if (userName.isNotEmpty() && (userGender != -1) && (userHeight != null)
+            if (userName.isNotEmpty() && (genderID != -1) && (userHeight != null)
                 && (userAge != null) && (userWeight != null)) {
                 if (userHeight > 250 || userAge > 120 || userWeight > 600) {
                     Toast.makeText(this, "One or More Invalid Inputs!", Toast.LENGTH_SHORT).show()
                 }
                 else {
                     // Save to Database new User
+                    val userGender : RadioButton = findViewById(genderID)
+                    val bundle = Bundle()
+                    bundle.putString("name", userName)
+                    bundle.putString("gender", userGender.text.toString())
+                    bundle.putString("height", editHeight.text.toString() + " cm")
+                    bundle.putString("age", editAge.text.toString() + " years")
+                    bundle.putString("weight", editWeight.text.toString() + " kg")
+                    bundle.putString("lvl", userActivityLVL)
 
-                    val myIntent = Intent(this, HomeActivity::class.java)
+                    val myIntent = Intent(this, HomeActivity::class.java).putExtras(bundle)
                     startActivity(myIntent)
                     }
             }

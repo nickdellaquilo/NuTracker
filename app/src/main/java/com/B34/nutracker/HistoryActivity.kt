@@ -12,7 +12,7 @@ class HistoryActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityHistoryBinding
-    lateinit var foodHistory : MutableList<String>
+    lateinit var foodHistory : Array<String>
 
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
@@ -29,7 +29,7 @@ class HistoryActivity : AppCompatActivity() {
 
         initData()
         if (foodHistory.isNotEmpty()) {
-            adapter = RecyclerAdapter(foodHistory)
+            adapter = RecyclerAdapter(foodHistory.reversedArray())
             recycler_view.adapter = adapter
         }
 
@@ -47,11 +47,10 @@ class HistoryActivity : AppCompatActivity() {
         // When Database added getData() will pull from database of
         // User food history
         var intent = intent.extras
-        foodHistory = ArrayList()
-        val food = (intent!!.getString("Food")).toString()
+        foodHistory = resources.getStringArray(R.array.history)
+        val food = (intent!!.getString("add"))
         if (!food.equals(null)) {
-            foodHistory.add(0, food)
+            foodHistory += food.toString()
         }
     }
-
 }

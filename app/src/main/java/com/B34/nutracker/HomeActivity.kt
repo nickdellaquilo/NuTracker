@@ -29,6 +29,12 @@ class HomeActivity : AppCompatActivity() {
     private fun replaceFragment(fragment : Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
+
+        var bundle = intent.extras
+        if (bundle != null) {
+            fragment.arguments = bundle
+        }
+
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
     }

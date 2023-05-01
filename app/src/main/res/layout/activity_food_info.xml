@@ -8,11 +8,10 @@
     tools:context=".FoodInfo">
 
     <ImageView
+        style="@style/bg_Orange"
         android:layout_width="375dp"
-        android:layout_height="525dp"
-        android:layout_gravity="center"
-        style="@style/bg_Orange">
-    </ImageView>
+        android:layout_height="325dp"
+        android:layout_gravity="center"></ImageView>
 
     <ImageView
         android:id="@+id/acorn3"
@@ -20,7 +19,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginStart="250dp"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="55dp"
         android:scaleX = "-1"
         android:src="@drawable/acorn" />
 
@@ -29,7 +28,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="55dp"
         android:scaleX = "-1"
         android:src="@drawable/acorn" />
 
@@ -39,7 +38,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginStart="-250dp"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="55dp"
         android:scaleX = "-1"
         android:src="@drawable/acorn" />
 
@@ -48,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="165dp"
         android:text="Food: "
         android:textSize="30sp"
         android:textStyle="bold"
@@ -59,99 +58,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="125dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="165dp"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 
     <TextView
-        android:id="@+id/CarbTextView"
+        android:id="@+id/IDTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="135dp"
-        android:text="Carbohydrates: "
+        android:layout_marginTop="220dp"
+        android:text="FDC ID: "
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 
     <TextView
-        android:id="@+id/Carbs"
-        android:layout_width="wrap_content"
+        android:id="@+id/IdNumber"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="255dp"
-        android:layout_marginTop="135dp"
+        android:layout_marginHorizontal="145dp"
+        android:layout_marginTop="220dp"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/white"/>
-
-
-    <TextView
-        android:id="@+id/ProteinTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="185dp"
-        android:text="Protein: "
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
-
-    <TextView
-        android:id="@+id/Protein"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="155dp"
-        android:layout_marginTop="185dp"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
-
-    <TextView
-        android:id="@+id/FatTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="235dp"
-        android:text="Fat: "
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
-
-    <TextView
-        android:id="@+id/Fat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="100dp"
-        android:layout_marginTop="235dp"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
-
-    <TextView
-        android:id="@+id/QuantityTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="285dp"
-        android:text="Quantity: "
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
-
-    <EditText
-        android:id="@+id/Quantity"
-        android:layout_width="75dp"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="170dp"
-        android:layout_marginTop="280dp"
-        android:inputType="number"
-        android:background="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textAlignment="center"
-        android:hint="..."/>
 
 
     <Button
@@ -160,7 +91,7 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="375dp"
+        android:layout_marginTop="240dp"
         android:text="Add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

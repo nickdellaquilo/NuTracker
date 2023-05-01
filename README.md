@@ -12,3 +12,6 @@
 * [Spoonacular food image recognition API](https://spoonacular.com/food-api/docs)
 * [Chaquopy, Python SDK for Android apps](https://chaquo.com/chaquopy/)
   * [Example code](https://github.com/chaquo/chaquopy-matplotlib/blob/master/app/src/main/java/com/chaquo/myapplication/MainActivity.kt)
+
+## Instructions
+* Download code and run APP on android studios
